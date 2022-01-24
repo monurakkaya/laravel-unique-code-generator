@@ -109,12 +109,12 @@ class Foo extends Model {
     
     protected static function uniqueCodeLength()
     {
-        return '32';
+        return 32;
     }
 }
 
 ```
 
-** Make sure your code length lte than column length
+** Make sure your code length lte than column length. Default is `8`
 
 
