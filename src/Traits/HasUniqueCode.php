@@ -51,7 +51,7 @@ trait HasUniqueCode
         return $code;
     }
 
-    protected static function generateStringUppercaseUniqueCode()
+    protected static function generateRandomUppercaseUniqueCode()
     {
         return Str::upper(
             Str::random(
@@ -60,7 +60,7 @@ trait HasUniqueCode
         );
     }
 
-    protected static function generateStringLowercaseUniqueCode()
+    protected static function generateRandomLowercaseUniqueCode()
     {
         return Str::lower(
             Str::random(
