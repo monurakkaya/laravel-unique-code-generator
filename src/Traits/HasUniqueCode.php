@@ -10,11 +10,10 @@ trait HasUniqueCode
     protected static function supportedUniqueCodeTypes()
     {
         return [
-            'string_uppercase',
-            'string_lowercase',
+            'random_uppercase',
+            'random_lowercase',
             'uuid',
-            'numeric',
-            'random'
+            'numeric'
         ];
     }
 
@@ -90,7 +89,7 @@ trait HasUniqueCode
 
     protected static function uniqueCodeType()
     {
-        return 'string_uppercase';
+        return 'random_uppercase';
     }
 
     protected static function uniqueCodeColumnName()
