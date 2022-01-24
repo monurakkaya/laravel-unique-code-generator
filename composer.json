@@ -1,0 +1,28 @@
+{
+  "name": "monurakkaya/laravel-unique-code-generator",
+  "description": "Provides unique code for your models",
+  "type": "library",
+  "autoload": {
+    "psr-4": {
+      "Monurakkaya\\Lucg\\": "src/"
+    },
+    "files": [
+
+    ]
+  },
+  "authors": [
+    {
+      "name": "Mehmet Onur Akkaya",
+      "email": "monurakkaya@gmail.com"
+    }
+  ],
+  "minimum-stability": "stable",
+  "require": {},
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Monurakkaya\\Lucg\\Providers\\LucgServiceProvider"
+      ]
+    }
+  }
+}
