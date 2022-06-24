@@ -3,6 +3,8 @@
 namespace Monurakkaya\Lucg\Traits;
 
 use Illuminate\Support\Str;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Monurakkaya\Lucg\Exceptions\UniqueCodeNotSupportedException;
 
 trait HasUniqueCode
@@ -33,7 +35,7 @@ trait HasUniqueCode
     {
         static::creating(function ($model) {
             if (!$model->isDirty(self::uniqueCodeColumnName())) {
-                $model->{self::uniqueCodeColumnName()} = self::generateCode();
+                $model->{self::uniqueCodeColumnName()} = self::generateCode($model);
             }
         });
     }
@@ -41,12 +43,19 @@ trait HasUniqueCode
     /**
      * @throws UniqueCodeNotSupportedException
      */
-    public static function generateCode()
+    public static function generateCode(Model $model)
     {
         self::checkUniqueCodeIsSupported();
         $code = self::{'generate'. Str::studly(self::uniqueCodeType()).'UniqueCode'}();
-        if (self::query()->where(self::uniqueCodeColumnName(), $code)->exists()) {
-            return self::generateCode();
+
+        $query = self::query();
+
+        if (in_array(SoftDeletes::class, class_uses_recursive($model))) {
+            $query->withTrashed();
+        }
+
+        if ($query->where(self::uniqueCodeColumnName(), $code)->exists()) {
+            return self::generateCode($model);
         }
         return $code;
     }
