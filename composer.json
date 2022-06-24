@@ -1,28 +1,44 @@
 {
-  "name": "monurakkaya/laravel-unique-code-generator",
-  "description": "Provides unique code for your models",
-  "type": "library",
-  "autoload": {
-    "psr-4": {
-      "Monurakkaya\\Lucg\\": "src/"
+    "name": "monurakkaya/laravel-unique-code-generator",
+    "description": "Provides unique code for your models",
+    "type": "library",
+    "license": "MIT",
+    "keywords": [
+        "laravel unique code",
+        "code generator",
+        "model",
+        "eloquent",
+        "laravel"
+    ],
+    "autoload": {
+        "psr-4": {
+            "Monurakkaya\\Lucg\\": "src/"
+        }
     },
-    "files": [
-
-    ]
-  },
-  "authors": [
-    {
-      "name": "Mehmet Onur Akkaya",
-      "email": "monurakkaya@gmail.com"
+    "autoload-dev": {
+        "psr-4": {
+            "Monurakkaya\\Lucg\\Tests\\": "tests/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Mehmet Onur Akkaya",
+            "email": "monurakkaya@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "php": "^7.4 || ^8.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^6.24 || ^7.0",
+        "phpunit/phpunit": "^9.5"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Monurakkaya\\Lucg\\Providers\\LucgServiceProvider"
+            ]
+        }
     }
-  ],
-  "minimum-stability": "stable",
-  "require": {},
-  "extra": {
-    "laravel": {
-      "providers": [
-        "Monurakkaya\\Lucg\\Providers\\LucgServiceProvider"
-      ]
-    }
-  }
 }
