@@ -88,7 +88,7 @@ trait HasUniqueCode
 
     protected static function generateUuidUniqueCode()
     {
-        return Str::uuid();
+        return Str::uuid()->toString();
     }
 
     protected static function uniqueCodeLength()
