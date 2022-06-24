@@ -118,3 +118,12 @@ class Foo extends Model {
 ** Make sure your code length lte than column length. Default is `8`
 
 
+## Tests
+
+To run the tests, execute the following from the command line, while in the project root directory:
+
+```shell
+./vendor/bin/phpunit
+```
+
+
